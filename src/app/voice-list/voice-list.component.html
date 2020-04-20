@@ -1,0 +1,17 @@
+<div
+  class="voice-list col-10 offset-1"
+>
+  <p class="title">{{ title | uppercase }}</p>
+  <div class="list-container" *ngIf="!voiceListItem || voiceListItem.length == 0">
+    <p class="info-text">No voices found.</p>
+  </div>
+  <div class="list-container" *ngIf="voiceListItem && voiceListItem.length > 0">
+    <app-voice
+      class="col-6 col-sm-3 col-sm-4 col-lg-2"
+      *ngFor="let item of voiceListItem"
+      [voiceData]="item"
+      (deselectAll)="deselectAll(item.id)"
+      (favClick)="updateFavList($event)"
+    ></app-voice>
+  </div>
+</div>

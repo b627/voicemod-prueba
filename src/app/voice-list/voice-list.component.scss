@@ -1,0 +1,53 @@
+@import "../../sass/main";
+
+.voice-list {
+  font-size: 1rem;
+}
+
+.voice-list .title {
+  color: map-get($map: $color-palette, $key: 300);
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  &::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid map-get($map: $color-palette, $key: 300);
+    margin-left: 2em;
+  }
+}
+
+.voice-list .info-text {
+  color: map-get($map: $color-palette, $key: 300);
+  margin: 2em 0 3em 0;
+}
+
+.list-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: $small) {
+  .voice-list .title {
+    font-size: 1.8em;
+    justify-content: center;
+
+    &::after {
+      margin-left: 1em;
+    }
+
+    &::before {
+      content: "";
+      flex: 1;
+      border-bottom: 1px solid map-get($map: $color-palette, $key: 300);
+      margin-right: 1em;
+    }
+  }
+
+  .voice-list .info-text {
+    width: 100%;
+    text-align: center;
+  }
+}

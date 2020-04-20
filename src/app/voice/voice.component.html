@@ -1,0 +1,10 @@
+<div class="card-container" *ngIf="voiceData">
+    <div class="icon" [ngClass]="{'selected': voiceData.selected}" (click)="selectVoice()" (mouseenter)="hover = true" (mouseleave)="hover = false">
+        <button *ngIf="hover" class="fav" (click)="saveAsFav($event)">
+            <img *ngIf="voiceData.fav" src="{{assetsPath}}voice-favourite.svg" alt="">
+            <img *ngIf="!voiceData.fav" src="{{assetsPath}}voice-favourite-off.svg" alt="">
+        </button>
+        <img src="{{ assetsPath }}{{ voiceData.icon }}" />
+    </div>
+    <span class="text" [ngClass]="{'selected': voiceData.selected}">{{ voiceData.name }}</span>
+</div>

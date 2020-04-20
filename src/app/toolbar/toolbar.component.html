@@ -1,0 +1,34 @@
+<div class="toolBar col-12">
+  <div class="searchBar col-12 col-md-4 col-lg-3">
+    <input
+      type="text"
+      [(ngModel)]="searchValue"
+      (ngModelChange)="filter()"
+    />
+    <button class="clear" (click)="clearSearch()" *ngIf="searchValue">
+      <img src="../../assets/search-close.svg" alt="clear">
+    </button>
+  </div>
+  <div class="filters col-12 col-md-8">
+    <div class="selector">
+      <img src="../../assets/filter.svg" alt="Filter" />
+      <select name="" id="" [(ngModel)]="categoryFilter" (change)="filter()">
+        <option value="all">All</option>
+        <option *ngFor="let category of voiceCategories" value="{{ category }}">
+          {{ category | titlecase }}
+        </option>
+      </select>
+    </div>
+    <div class="selector">
+      <img src="{{ assetsPath }}order.svg" alt="Order" />
+        <select name="" id="" [(ngModel)]="orderFilter" (change)="filter()">
+          <option *ngFor="let order of ordering" value="{{ order.id }}">
+            {{ order.name }}
+          </option>
+        </select>
+    </div>
+    <button class="random" (click)="randomVoice()">
+      <img src="{{ assetsPath }}button-random.svg" alt="Random Voice" />
+    </button>
+  </div>
+</div>

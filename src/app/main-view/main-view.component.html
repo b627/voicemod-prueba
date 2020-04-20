@@ -1,0 +1,17 @@
+<div class="main-view">
+  <app-toolbar
+    [voiceCategories]="voiceListCategories"
+    (filterOptions)="onSearch($event)"
+    (randomize)="selectRandom()"
+  ></app-toolbar>
+  <app-voice-list
+    [title]="'favourites'"
+    [voiceListItem]="voicesListFav"
+    (favClick)="updateFavList($event)"
+  ></app-voice-list>
+  <app-voice-list
+    [title]="'pro voices'"
+    [voiceListItem]="voicesList"
+    (favClick)="updateFavList($event)"
+  ></app-voice-list>
+</div>

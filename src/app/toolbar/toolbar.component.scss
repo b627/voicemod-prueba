@@ -1,0 +1,126 @@
+@import "../../sass/main";
+
+.toolBar {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1em;
+}
+
+.searchBar {
+  position: relative;
+  padding: 0;
+}
+
+.searchBar input{
+  width: 100%;
+  height: 2em;
+  margin: 0.5em 0;
+  color: map-get($map: $color-palette, $key: white);
+  text-align: center;
+  background: map-get($map: $color-palette, $key: black)
+    url(../../assets/search.png) no-repeat 0.5em center;
+  background-size: 1.5em;
+  padding: 0 3em;
+  border-radius: 1em;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.searchBar .clear {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.toolBar .filters {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.selector {
+  display: flex;
+  align-items: center;
+  margin-right: 1.5em;
+
+  & img {
+    width: 2em;
+    height: 2em;
+    margin-right: 0.5em;
+  }
+
+  & select {
+    height: 2em;
+    background-color: map-get($map: $color-palette, $key: black);
+    color: map-get($map: $color-palette, $key: white);
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 1em;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.random {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  & img {
+    width: 2em;
+    height: 2em;
+  }
+}
+
+@media (max-width: $medium) {
+  .toolBar .filters {
+    justify-content: space-between;
+    padding: 0;
+  }
+
+  .selector,
+  .selector select {
+    flex-grow: 1;
+  }
+}
+
+@media (max-width: $small) {
+  .toolBar {
+    font-size: 20px;
+  }
+
+  .toolBar .filters {
+    flex-direction: column;
+  }
+
+  .selector {
+    width: 100%;
+    margin: 0.5em 0;
+  }
+
+  .random {
+    margin: 0.5em auto;
+    padding: 1em;
+    border: 0.5px solid map-get($map: $color-palette, $key: 500);
+    border-radius: 2em;
+  }
+}
